@@ -10,75 +10,134 @@
     position: fixed;
     inset: 0;
     z-index: 99999;
-    background: #07111f;
+    background: radial-gradient(circle at center, #102d50 0%, #07111f 55%, #020711 100%);
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     overflow: hidden;
-    animation: introFade 1s ease 4.5s forwards;
+    animation: introFadeOut 1s ease 5.8s forwards;
 }
 
 .intro-circuit {
     position: absolute;
     inset: 0;
     background-image:
-      linear-gradient(rgba(0,170,255,.08) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(0,170,255,.08) 1px, transparent 1px);
+        linear-gradient(rgba(0,180,255,.13) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,180,255,.13) 1px, transparent 1px);
     background-size: 45px 45px;
+    animation: circuitMove 8s linear infinite;
+    mask-image: linear-gradient(transparent, black, transparent);
+}
+
+.intro-glow {
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    background: #008cff;
+    filter: blur(130px);
+    opacity: .35;
+    animation: glowPulse 2s infinite alternate;
+}
+
+.intro-particle-ring {
+    position: absolute;
+    width: 290px;
+    height: 290px;
+    border: 2px dashed #20cfff;
+    border-radius: 50%;
+    box-shadow: 0 0 25px #008cff, inset 0 0 25px #008cff;
+    opacity: 0;
+    animation: ringAppear .8s ease 1.1s forwards, ringSpin 9s linear infinite;
+}
+
+.intro-particle-core {
+    position: absolute;
+    inset: 25px;
+    border: 2px dotted #a4edff;
+    border-radius: 50%;
+    animation: ringSpin 5s linear infinite reverse;
 }
 
 .intro-cube {
-    width: 90px;
-    height: 90px;
+    position: absolute;
+    width: 85px;
+    height: 85px;
     background: linear-gradient(135deg,#00d9ff,#1745a5);
-    border: 2px solid #8cecff;
-    box-shadow: 0 0 35px #00aeff, inset 0 0 20px #ffffff55;
+    border: 2px solid #a4edff;
+    box-shadow: 0 0 35px #00aeff;
     transform: rotate(45deg);
     animation: cubeDrop 1.2s cubic-bezier(.2,.8,.3,1) forwards;
-    z-index: 2;
+    z-index: 3;
 }
 
-.intro-particles {
-    position: absolute;
-    width: 260px;
-    height: 260px;
-    border: 2px dotted #00c8ff;
-    border-radius: 50%;
-    box-shadow: 0 0 35px #0077ff;
-    animation: particleSpin 4s linear infinite;
+.cube-face {
+    display: none;
+}
+
+.intro-title {
+    z-index: 5;
+    text-align: center;
+    margin-top: 35px;
 }
 
 .intro-cms {
     color: white;
-    font-size: clamp(65px, 13vw, 115px);
+    font-size: clamp(70px, 14vw, 125px);
     font-weight: 900;
-    letter-spacing: 12px;
-    margin-top: 45px;
+    letter-spacing: 14px;
     opacity: 0;
-    text-shadow: 0 0 25px #00bfff;
-    animation: textReveal .8s ease 1.4s forwards;
+    text-shadow: 0 0 15px #00bfff, 0 0 45px #0077ff;
+    animation: cmsReveal 1s ease 1.8s forwards;
 }
 
 .intro-subtitle {
-    color: #64dfff;
-    font-size: clamp(16px, 3vw, 25px);
-    letter-spacing: 8px;
-    font-weight: 600;
+    color: #65dcff;
+    font-size: clamp(16px, 3vw, 26px);
+    letter-spacing: 9px;
+    font-weight: 700;
     opacity: 0;
-    animation: textReveal .8s ease 2.2s forwards;
+    animation: subtitleReveal 1s ease 2.6s forwards;
+}
+
+.intro-line {
+    width: 0;
+    height: 2px;
+    margin: 18px auto;
+    background: #00d9ff;
+    box-shadow: 0 0 15px #00cfff;
+    animation: lineReveal 1s ease 3.1s forwards;
+}
+
+.intro-tagline {
+    color: #8bbbd9;
+    font-size: 11px;
+    letter-spacing: 5px;
+    opacity: 0;
+    animation: subtitleReveal .8s ease 3.5s forwards;
 }
 
 .intro-skip {
     position: absolute;
-    bottom: 30px;
-    right: 30px;
-    background: transparent;
+    bottom: 24px;
+    left: 24px;
+    background: rgba(0,20,40,.65);
     color: #8bdfff;
     border: 1px solid #2586ad;
-    padding: 9px 20px;
+    padding: 8px 16px;
     border-radius: 30px;
+    font-size: 11px;
+    letter-spacing: 2px;
     cursor: pointer;
+    z-index: 10;
+    transition: .3s;
+}
+
+.intro-skip:hover {
+    background: #087bb4;
+    color: white;
+    box-shadow: 0 0 20px #00aeff;
 }
 
 @keyframes cubeDrop {
@@ -87,35 +146,75 @@
     100% { transform: translateY(0) rotate(405deg); }
 }
 
-@keyframes particleSpin {
-    to { transform: rotate(360deg) scale(1.1); }
+@keyframes ringAppear {
+    to { opacity: .9; }
 }
 
-@keyframes textReveal {
+@keyframes ringSpin {
+    to { transform: rotate(360deg); }
+}
+
+@keyframes cmsReveal {
+    0% { opacity: 0; transform: scale(1.5); filter: blur(15px); }
+    100% { opacity: 1; transform: scale(1); filter: blur(0); }
+}
+
+@keyframes subtitleReveal {
     to { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes introFade {
+@keyframes lineReveal {
+    to { width: 220px; }
+}
+
+@keyframes circuitMove {
+    to { background-position: 45px 45px; }
+}
+
+@keyframes glowPulse {
+    to { opacity: .6; transform: scale(1.2); }
+}
+
+@keyframes introFadeOut {
     to { opacity: 0; visibility: hidden; pointer-events: none; }
 }
 
-.intro-cms, .intro-subtitle {
-    transform: translateY(25px);
+@media (prefers-reduced-motion: reduce) {
+    #intro-screen, #intro-screen * {
+        animation-duration: .01ms !important;
+    }
 }
 </style>
 </head>
 <body>
-  <div id="intro-screen">
+ <div id="intro-screen">
     <div class="intro-circuit"></div>
-    <div class="intro-particles"></div>
 
-    <div class="intro-cube"></div>
+    <div class="intro-glow"></div>
 
-    <div class="intro-cms">CMS</div>
-    <div class="intro-subtitle">EVENT MANAGER</div>
+    <div class="intro-particle-ring">
+        <div class="intro-particle-core"></div>
+    </div>
 
-    <button class="intro-skip" onclick="document.getElementById('intro-screen').remove()">
-        Skip Intro →
+    <div class="intro-cube">
+        <div class="cube-face front">CMS</div>
+        <div class="cube-face back"></div>
+        <div class="cube-face right"></div>
+        <div class="cube-face left"></div>
+        <div class="cube-face top"></div>
+        <div class="cube-face bottom"></div>
+    </div>
+
+    <div class="intro-title">
+        <div class="intro-cms">CMS</div>
+        <div class="intro-subtitle">EVENT MANAGER</div>
+        <div class="intro-line"></div>
+        <div class="intro-tagline">POWERING EVERY EXPERIENCE</div>
+    </div>
+
+    <button class="intro-skip"
+        onclick="document.getElementById('intro-screen').remove()">
+        SKIP INTRO →
     </button>
 </div>
   <main class="shell">
@@ -174,15 +273,27 @@
     <footer>CMS EVENTS ASSISTANT · Event categories can be expanded as new information becomes available</footer>
   </main>
   <script src="{{ url_for('static', filename='app.js') }}"></script>
-  <script>
+ <script>
 document.addEventListener("DOMContentLoaded", function () {
     const intro = document.getElementById("intro-screen");
 
-    if (intro) {
+    if (!intro) return;
+
+    const skipButton = intro.querySelector(".intro-skip");
+
+    function closeIntro() {
+        intro.style.animation = "none";
+        intro.style.opacity = "0";
+        intro.style.visibility = "hidden";
+
         setTimeout(function () {
             intro.remove();
-        }, 5500);
+        }, 300);
     }
+
+    skipButton.addEventListener("click", closeIntro);
+
+    setTimeout(closeIntro, 6800);
 });
 </script>
 </body>
