@@ -5,8 +5,119 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{ title }}</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <style>
+#intro-screen {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    background: #07111f;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    overflow: hidden;
+    animation: introFade 1s ease 4.5s forwards;
+}
+
+.intro-circuit {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(0,170,255,.08) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,170,255,.08) 1px, transparent 1px);
+    background-size: 45px 45px;
+}
+
+.intro-cube {
+    width: 90px;
+    height: 90px;
+    background: linear-gradient(135deg,#00d9ff,#1745a5);
+    border: 2px solid #8cecff;
+    box-shadow: 0 0 35px #00aeff, inset 0 0 20px #ffffff55;
+    transform: rotate(45deg);
+    animation: cubeDrop 1.2s cubic-bezier(.2,.8,.3,1) forwards;
+    z-index: 2;
+}
+
+.intro-particles {
+    position: absolute;
+    width: 260px;
+    height: 260px;
+    border: 2px dotted #00c8ff;
+    border-radius: 50%;
+    box-shadow: 0 0 35px #0077ff;
+    animation: particleSpin 4s linear infinite;
+}
+
+.intro-cms {
+    color: white;
+    font-size: clamp(65px, 13vw, 115px);
+    font-weight: 900;
+    letter-spacing: 12px;
+    margin-top: 45px;
+    opacity: 0;
+    text-shadow: 0 0 25px #00bfff;
+    animation: textReveal .8s ease 1.4s forwards;
+}
+
+.intro-subtitle {
+    color: #64dfff;
+    font-size: clamp(16px, 3vw, 25px);
+    letter-spacing: 8px;
+    font-weight: 600;
+    opacity: 0;
+    animation: textReveal .8s ease 2.2s forwards;
+}
+
+.intro-skip {
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    background: transparent;
+    color: #8bdfff;
+    border: 1px solid #2586ad;
+    padding: 9px 20px;
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+@keyframes cubeDrop {
+    0% { transform: translateY(-500px) rotate(0deg); }
+    75% { transform: translateY(0) rotate(400deg); }
+    100% { transform: translateY(0) rotate(405deg); }
+}
+
+@keyframes particleSpin {
+    to { transform: rotate(360deg) scale(1.1); }
+}
+
+@keyframes textReveal {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes introFade {
+    to { opacity: 0; visibility: hidden; pointer-events: none; }
+}
+
+.intro-cms, .intro-subtitle {
+    transform: translateY(25px);
+}
+</style>
 </head>
 <body>
+  <div id="intro-screen">
+    <div class="intro-circuit"></div>
+    <div class="intro-particles"></div>
+
+    <div class="intro-cube"></div>
+
+    <div class="intro-cms">CMS</div>
+    <div class="intro-subtitle">EVENT MANAGER</div>
+
+    <button class="intro-skip" onclick="document.getElementById('intro-screen').remove()">
+        Skip Intro →
+    </button>
+</div>
   <main class="shell">
     <header class="topbar">
       <div class="brand-mark">C</div>
@@ -63,5 +174,16 @@
     <footer>CMS EVENTS ASSISTANT · Event categories can be expanded as new information becomes available</footer>
   </main>
   <script src="{{ url_for('static', filename='app.js') }}"></script>
+  <script>
+document.addEventListener("DOMContentLoaded", function () {
+    const intro = document.getElementById("intro-screen");
+
+    if (intro) {
+        setTimeout(function () {
+            intro.remove();
+        }, 5500);
+    }
+});
+</script>
 </body>
 </html>
