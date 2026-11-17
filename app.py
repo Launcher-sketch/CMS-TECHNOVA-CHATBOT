@@ -53,7 +53,7 @@ def chat():
         if contains_any(message, item.get("keywords", [])):
             return jsonify(reply=item.get("answer", "I don't have an answer for that yet."))
 
-    return jsonify(reply=data.get("fallback", "I couldn't find a confirmed answer. Please check the latest official CMS notice."))
+    return jsonify(reply="I couldn't find that information in the TECHNOVA 2026 brochure. Please contact the Event Manager, Mr. Abhishek Sharma, for assistance.")
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
