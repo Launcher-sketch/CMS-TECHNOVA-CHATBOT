@@ -1,6 +1,96 @@
 {
-  "site_title": "CMS TECHNOVA AI Assistant",
-  "fallback": "I couldn't find a confirmed answer to that question. Please contact the CMS TECHNOVA organising team.",
+  "site_title": "CMS Events Assistant",
+  "fallback": "I don't have confirmed information about that CMS event yet. Please check the latest school notice or ask your school coordinator. New event details can be added to the project data file.",
+  "categories": [
+    {
+      "id": "technova",
+      "name": "TECHNOVA 2026",
+      "icon": "🏆",
+      "status": "Available",
+      "description": "Technology festival and competitions",
+      "keywords": [
+        "technova",
+        "tech nova"
+      ]
+    },
+    {
+      "id": "cultural",
+      "name": "Cultural Events",
+      "icon": "🎭",
+      "status": "Coming soon",
+      "description": "Performances, music, dance and cultural programmes",
+      "keywords": [
+        "cultural",
+        "culture",
+        "dance",
+        "music",
+        "drama",
+        "singing",
+        "festival"
+      ]
+    },
+    {
+      "id": "sports",
+      "name": "Sports Events",
+      "icon": "🏅",
+      "status": "Coming soon",
+      "description": "Sports days, games and tournaments",
+      "keywords": [
+        "sports",
+        "sport",
+        "tournament",
+        "athletics",
+        "football",
+        "cricket",
+        "basketball"
+      ]
+    },
+    {
+      "id": "science",
+      "name": "Science & Exhibitions",
+      "icon": "🔬",
+      "status": "Coming soon",
+      "description": "Science fairs, exhibitions and innovation activities",
+      "keywords": [
+        "science",
+        "exhibition",
+        "exhibitions",
+        "science fair",
+        "innovation"
+      ]
+    },
+    {
+      "id": "academic",
+      "name": "Academic Events",
+      "icon": "📚",
+      "status": "Coming soon",
+      "description": "Quizzes, debates, Olympiads and academic competitions",
+      "keywords": [
+        "academic",
+        "quiz",
+        "debate",
+        "olympiad",
+        "spelling",
+        "competition"
+      ]
+    },
+    {
+      "id": "other",
+      "name": "Other CMS Events",
+      "icon": "📅",
+      "status": "Coming soon",
+      "description": "Assemblies, workshops, celebrations and other activities",
+      "keywords": [
+        "other events",
+        "other cms",
+        "workshop",
+        "seminar",
+        "assembly",
+        "annual day",
+        "celebration"
+      ]
+    }
+  ],
   "faqs": [
     {
       "keywords": [
@@ -8,7 +98,17 @@
         "hi",
         "hey"
       ],
-      "answer": "Hello! Welcome to the CMS TECHNOVA AI Assistant. Ask me about competitions, registration, rules, schedule or support."
+      "answer": "Hello! Welcome to the CMS Events Assistant. Choose an event category or ask me about TECHNOVA 2026."
+    },
+    {
+      "keywords": [
+        "what events",
+        "all events",
+        "event categories",
+        "cms events",
+        "what can you tell me"
+      ],
+      "answer": "I cover these categories: TECHNOVA 2026, Cultural Events, Sports Events, Science & Exhibitions, Academic Events and Other CMS Events. TECHNOVA information is the only category with source material currently added. Other categories are available, but their details are marked Coming Soon."
     },
     {
       "keywords": [
@@ -16,7 +116,7 @@
         "about technova",
         "what is technova"
       ],
-      "answer": "Welcome to CMS TECHNOVA 2026. I can help you find event information. Please note that the detailed official event information still needs to be added."
+      "answer": "TECHNOVA 2026 is included as a category in this assistant. Ask about a specific competition or share the official brochure so its details can be added accurately. The current project ZIP did not contain the detailed brochure data."
     },
     {
       "keywords": [
@@ -24,14 +124,14 @@
         "register",
         "sign up"
       ],
-      "answer": "Please refer to the official CMS TECHNOVA registration instructions. Confirmed registration links and deadlines have not yet been added to this starter project."
+      "answer": "Registration details depend on the event. Confirmed registration links and instructions have not been added for all CMS events. Please check the official school notice."
     },
     {
       "keywords": [
         "rules",
         "guidelines"
       ],
-      "answer": "Please follow the official rules for your competition. The confirmed competition-wise rulebook has not yet been added."
+      "answer": "Rules vary by event. Please refer to the official notice or competition rulebook. Unverified rules are not displayed as facts."
     },
     {
       "keywords": [
@@ -42,7 +142,15 @@
         "venue",
         "location"
       ],
-      "answer": "The confirmed TECHNOVA schedule and venue details have not yet been added. Please check the official event notice."
+      "answer": "I don't have confirmed dates, timings or venues for every CMS event yet. Please check the latest official school notice."
+    },
+    {
+      "keywords": [
+        "add event",
+        "add new event",
+        "update events"
+      ],
+      "answer": "New events can be added by the project maintainer in data/technova.json under the events list, with a name, category, description and keywords. Then upload the updated file to GitHub so the website redeploys."
     },
     {
       "keywords": [
@@ -50,7 +158,7 @@
         "help",
         "support"
       ],
-      "answer": "For confirmed assistance, please contact the CMS TECHNOVA organising team or your school coordinator."
+      "answer": "For confirmed assistance, please contact your school coordinator or the relevant event organising team."
     }
   ],
   "events": []

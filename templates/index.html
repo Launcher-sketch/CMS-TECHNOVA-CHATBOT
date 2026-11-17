@@ -9,41 +9,58 @@
 <body>
   <main class="shell">
     <header class="topbar">
-      <div class="brand-mark">T</div>
+      <div class="brand-mark">C</div>
       <div>
-        <p class="eyebrow">CMS ALIGANJ-I · 2026</p>
-        <h1>TECHNOVA <span>AI ASSISTANT</span></h1>
+        <p class="eyebrow">CITY MONTESSORI SCHOOL</p>
+        <h1>CMS <span>EVENTS ASSISTANT</span></h1>
       </div>
       <div class="status"><i></i> ONLINE</div>
     </header>
 
     <section class="intro">
-      <p class="eyebrow">YOUR EVENT COMPANION</p>
-      <h2>What would you like to know?</h2>
-      <p>Ask about competitions, registration, rules, schedules and event information.</p>
+      <p class="eyebrow">YOUR SCHOOL EVENT COMPANION</p>
+      <h2>Explore CMS events</h2>
+      <p>Choose a category or ask a question about an event.</p>
+    </section>
+
+    <section class="category-section" aria-label="Event categories">
+      <div class="section-heading">
+        <h2>Browse event categories</h2>
+        <p>TECHNOVA is the initial data set. Other categories are ready for future updates.</p>
+      </div>
+      <div class="category-grid">
+        {% for category in categories %}
+        <button class="category-card" type="button" data-question="Tell me about {{ category.name }}">
+          <span class="category-icon">{{ category.icon }}</span>
+          <strong>{{ category.name }}</strong>
+          <span class="category-description">{{ category.description }}</span>
+          <span class="category-status {% if category.status == 'Available' %}available{% endif %}">{{ category.status }}</span>
+        </button>
+        {% endfor %}
+      </div>
     </section>
 
     <section class="chat-card" aria-label="Chat assistant">
       <div class="chat-head">
-        <div class="bot-avatar">T</div>
-        <div><strong>TECHNOVA Assistant</strong><small>Event information desk</small></div>
+        <div class="bot-avatar">C</div>
+        <div><strong>CMS Events Assistant</strong><small>School event information desk</small></div>
       </div>
       <div id="messages" class="messages" aria-live="polite">
-        <div class="bubble bot">Hello! Welcome to CMS TECHNOVA. What would you like to know?</div>
+        <div class="bubble bot">Hello! Welcome to the CMS Events Assistant. Select a category above or ask me about CMS events.</div>
       </div>
       <div class="suggestions">
-        <button type="button" data-question="Tell me about TECHNOVA">About TECHNOVA</button>
-        <button type="button" data-question="How do I register?">Registration</button>
-        <button type="button" data-question="Tell me the rules">Rules</button>
-        <button type="button" data-question="What is the schedule?">Schedule</button>
+        <button type="button" data-question="Show me all CMS event categories">All categories</button>
+        <button type="button" data-question="Tell me about TECHNOVA 2026">TECHNOVA 2026</button>
+        <button type="button" data-question="Tell me about sports events">Sports</button>
+        <button type="button" data-question="How can new events be added?">Add new events</button>
       </div>
       <form id="chat-form" class="composer">
-        <input id="message-input" type="text" placeholder="Type your question..." autocomplete="off" aria-label="Your question">
+        <input id="message-input" type="text" placeholder="Ask about a CMS event..." autocomplete="off" aria-label="Your question">
         <button id="send-button" type="submit">Send</button>
       </form>
-      <p class="disclaimer">Answers are based on information added by the project team. Verify important details with official event notices.</p>
+      <p class="disclaimer">The assistant only gives confirmed details that have been added to its data. For missing information, check official CMS notices.</p>
     </section>
-    <footer>CMS TECHNOVA · AI-powered event information interface</footer>
+    <footer>CMS EVENTS ASSISTANT · Event categories can be expanded as new information becomes available</footer>
   </main>
   <script src="{{ url_for('static', filename='app.js') }}"></script>
 </body>
