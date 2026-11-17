@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ title }}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar">
+      <div class="brand-mark">T</div>
+      <div>
+        <p class="eyebrow">CMS ALIGANJ-I · 2026</p>
+        <h1>TECHNOVA <span>AI ASSISTANT</span></h1>
+      </div>
+      <div class="status"><i></i> ONLINE</div>
+    </header>
+
+    <section class="intro">
+      <p class="eyebrow">YOUR EVENT COMPANION</p>
+      <h2>What would you like to know?</h2>
+      <p>Ask about competitions, registration, rules, schedules and event information.</p>
+    </section>
+
+    <section class="chat-card" aria-label="Chat assistant">
+      <div class="chat-head">
+        <div class="bot-avatar">T</div>
+        <div><strong>TECHNOVA Assistant</strong><small>Event information desk</small></div>
+      </div>
+      <div id="messages" class="messages" aria-live="polite">
+        <div class="bubble bot">Hello! Welcome to CMS TECHNOVA. What would you like to know?</div>
+      </div>
+      <div class="suggestions">
+        <button type="button" data-question="Tell me about TECHNOVA">About TECHNOVA</button>
+        <button type="button" data-question="How do I register?">Registration</button>
+        <button type="button" data-question="Tell me the rules">Rules</button>
+        <button type="button" data-question="What is the schedule?">Schedule</button>
+      </div>
+      <form id="chat-form" class="composer">
+        <input id="message-input" type="text" placeholder="Type your question..." autocomplete="off" aria-label="Your question">
+        <button id="send-button" type="submit">Send</button>
+      </form>
+      <p class="disclaimer">Answers are based on information added by the project team. Verify important details with official event notices.</p>
+    </section>
+    <footer>CMS TECHNOVA · AI-powered event information interface</footer>
+  </main>
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
