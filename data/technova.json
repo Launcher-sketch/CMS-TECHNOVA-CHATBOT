@@ -1,6 +1,7 @@
+
 {
   "site_title": "CMS Events Assistant",
-  "fallback": "I don't have confirmed information about that yet. Please check the latest official CMS notice or contact the event help desk. I won't guess dates, rules, eligibility or venues.",
+  "fallback": "I couldn't find that information in the TECHNOVA 2026 brochure. Please contact the Event Manager, Mr. Abhishek Sharma, for assistance.",
   "categories": [
     {
       "id": "technova",
@@ -8,12 +9,7 @@
       "icon": "🏆",
       "status": "Available",
       "description": "Inter-House Robotics & Artificial Intelligence Championship",
-      "keywords": [
-        "technova",
-        "tech nova",
-        "robotics championship",
-        "ai championship"
-      ]
+      "keywords": ["technova", "tech nova", "robotics championship", "ai championship"]
     },
     {
       "id": "cultural",
@@ -21,15 +17,7 @@
       "icon": "🎭",
       "status": "Coming soon",
       "description": "Performances, music, dance and cultural programmes",
-      "keywords": [
-        "cultural",
-        "culture",
-        "dance",
-        "music",
-        "drama",
-        "singing",
-        "festival"
-      ]
+      "keywords": ["cultural", "culture", "dance", "music", "drama", "singing", "festival"]
     },
     {
       "id": "sports",
@@ -37,15 +25,7 @@
       "icon": "🏅",
       "status": "Coming soon",
       "description": "Sports days, games and tournaments",
-      "keywords": [
-        "sports",
-        "sport",
-        "tournament",
-        "athletics",
-        "football",
-        "cricket",
-        "basketball"
-      ]
+      "keywords": ["sports", "sport", "tournament", "athletics", "football", "cricket", "basketball"]
     },
     {
       "id": "science",
@@ -53,12 +33,7 @@
       "icon": "🔬",
       "status": "Coming soon",
       "description": "Science fairs, exhibitions and innovation activities",
-      "keywords": [
-        "science",
-        "exhibition",
-        "science fair",
-        "innovation"
-      ]
+      "keywords": ["science", "exhibition", "science fair", "innovation"]
     },
     {
       "id": "academic",
@@ -66,13 +41,7 @@
       "icon": "📚",
       "status": "Coming soon",
       "description": "Quizzes, debates, Olympiads and academic competitions",
-      "keywords": [
-        "academic",
-        "quiz",
-        "debate",
-        "olympiad",
-        "spelling"
-      ]
+      "keywords": ["academic", "quiz", "debate", "olympiad", "spelling"]
     },
     {
       "id": "other",
@@ -80,295 +49,139 @@
       "icon": "📅",
       "status": "Coming soon",
       "description": "Assemblies, workshops, celebrations and other activities",
-      "keywords": [
-        "other events",
-        "workshop",
-        "seminar",
-        "assembly",
-        "annual day",
-        "celebration"
-      ]
+      "keywords": ["other events", "workshop", "seminar", "assembly", "annual day", "celebration"]
     }
   ],
   "events": [
     {
-      "name": "TECHNOVA 2026 – Championship Overview",
+      "name": "TECHNOVA 2026 Championship Overview",
       "category": "technova",
-      "keywords": [
-        "about technova",
-        "technova overview",
-        "championship overview",
-        "what is technova",
-        "host branch",
-        "principal",
-        "reporting time",
-        "help desk",
-        "technical coordinator"
-      ],
-      "description": "TECHNOVA 2026 is the CMS Aliganj-I Inter-House Robotics & Artificial Intelligence Championship, hosted by City Montessori School, Aliganj-I. Dates: 19 and 20 November 2026. Principal: Ms. Shivani Singh. Participants: Classes VI–XII, subject to category eligibility. Format: inter-house team and individual challenges. Reporting time: 8:00 AM on the respective event day. Help desk: Mr. Shubham Asthana. Technical coordinators: Ms. Swaranjali Rawat (8090365217) and Mr. Abhishek Sharma (9670050600)."
+      "keywords": ["about technova", "technova overview", "championship overview", "host branch", "principal", "reporting time"],
+      "description": "TECHNOVA 2026 is the Inter-House Robotics & Artificial Intelligence Championship hosted by City Montessori School, Aliganj-I. Dates: 19 and 20 November 2026. Principal: Ms. Shivani Singh. Participants: Classes VI-XII, subject to category eligibility. Format: Inter-House team and individual challenges. Reporting time: 8:00 AM on the respective event day. Host branch: CMS Aliganj-I."
     },
     {
       "name": "TECHNOVA Registration",
       "category": "technova",
-      "keywords": [
-        "registration",
-        "register",
-        "registration link",
-        "last date",
-        "deadline",
-        "sign up"
-      ],
-      "description": "The brochure gives this registration form: https://forms.gle/YT72wa7RzUM5qmGM7 . The last date to register was 16 November 2026, which has passed as of 17 November 2026. Contact the event help desk to ask whether any late registration is possible; the brochure does not confirm late registration."
+      "keywords": ["registration", "register", "registration link", "last date", "deadline", "sign up", "form"],
+      "description": "Registration form: https://forms.gle/YT72wa7RzUM5qmGM7 . The registration deadline was 16 November 2026. This published deadline has passed. The brochure does not confirm late registration. Contact the event organisers to ask whether any exception is possible."
     },
     {
       "name": "Robo Soccer",
       "category": "technova",
-      "keywords": [
-        "robo soccer",
-        "robot soccer",
-        "soccer",
-        "football robot"
-      ],
-      "description": "Junior category, Classes VI–VIII; 20 November 2026. Objective: score goals using a remotely controlled robot, showing control, teamwork and safe play. One robot per team, maximum 2 members. Maximum size/weight: 30 × 30 × 30 cm and 3 kg. Wired or wireless remote; autonomous functions permitted but not required. Power: maximum 12 V. Robots must not hold or trap the ball. Match: two halves of 2 minutes with a 1-minute half-time. Fouls include holding/trapping the ball for more than 5 seconds or deliberate damaging contact. Venue: Turf Area, Cambridge Section. Teacher in charge: Mr. Shantanu Kumar. Disqualification includes non-compliant robot, deliberate damage, more than three foul warnings, or unsportsmanlike conduct."
+      "keywords": ["robo soccer", "robot soccer", "soccer", "football robot", "soccer rules"],
+      "description": "Junior Section, Classes VI-VIII. Date: 20 November 2026. Objective: score goals using a remotely controlled robot. Team: maximum 2 members, one robot. Maximum robot dimensions: 30 x 30 x 30 cm; maximum weight: 3 kg. Wired or wireless remote; autonomous functions permitted but not required. Maximum power: 12V. Robots must not hold or trap the ball. Match: two halves of 2 minutes with a 1-minute half-time. Fouls include holding or trapping the ball for more than 5 seconds and deliberate damaging contact. Penalty: free kick to the non-offending team, with the opponent robot 30 cm away from the ball. Winner: most goals. Venue: Turf Area, Cambridge Section. Teacher: Mr. Shantanu Kumar. Disqualification: non-compliant robot, deliberate damage to opponent robot or field, more than 3 foul warnings in a match, or unsportsmanlike conduct."
     },
     {
       "name": "Line Follower",
       "category": "technova",
-      "keywords": [
-        "line follower",
-        "line following robot",
-        "robot line"
-      ],
-      "description": "Junior category, Classes VI–VIII; 20 November 2026. Objective: a fully autonomous robot follows a black line on a white surface and finishes in the shortest time. Sensors: 3 individual IR sensors. Maximum size/weight: 20 × 20 × 20 cm at start and 2 kg. Onboard power source, maximum 12 V. Track includes a black line about 2–3 cm wide, straight paths, curves, intersections, and 25 × 25 cm black start/finish boxes. Team: 2 participants. Two attempts with a 1-minute gap; better time counts. Venue: Robotics Lab. Teacher in charge: Ms. Noopur Goel."
+      "keywords": ["line follower", "line following robot", "robot line", "line follower rules"],
+      "description": "Junior Section, Classes VI-VIII. Date: 20 November 2026. Objective: a fully autonomous robot follows a black line on a white surface and completes the track in the shortest time. Remote control is not allowed after the run begins. Sensors: 3 individual IR sensors. Maximum dimensions: 20 x 20 x 20 cm at the start. Maximum weight: 2 kg. Self-contained onboard power source, maximum 12V. Track: black line approximately 2-3 cm wide, with straight paths, curves and intersections. Start and finish boxes: solid black, 25 x 25 cm. Team: 2 participants. Two attempts with a 1-minute gap; the better time counts. Venue: Robotics Lab. Teacher: Ms. Noopur Goel. Disqualification: failure to meet specifications, human intervention after crossing the start line, or damage to the track or arena."
     },
     {
       "name": "Obstacle Race",
       "category": "technova",
-      "keywords": [
-        "obstacle race",
-        "robot obstacle",
-        "obstacles"
-      ],
-      "description": "Robotics Arena; 20 November 2026. Objective: navigate an arena with a manually controlled robot and reach the finish in the shortest time. Control: wireless remote or Bluetooth. Maximum size/weight: 25 × 25 × 25 cm and 3 kg. Onboard power maximum 12 V. Possible obstacles: ramps, bridges, speed breakers, sand, stones and pebbles. Team: 2 participants. One attempt, maximum 10 minutes. Up to 3 re-entries; robot is placed at the last crossed checkpoint and the timer keeps running. Venue: Back Field. Teacher in charge: Mr. Shubham Asthana."
+      "keywords": ["obstacle race", "robot obstacle", "obstacles", "obstacle rules"],
+      "description": "Date: 20 November 2026. Objective: navigate an obstacle arena and reach the finish in the shortest time. Control: wireless remote or Bluetooth. Maximum dimensions: 25 x 25 x 25 cm. Maximum weight: 3 kg. Onboard power: maximum 12V. Possible obstacles include ramps, bridges, speed breakers, sand, stones and pebbles. Team: 2 participants. One attempt, maximum 10 minutes. Up to 3 re-entries are allowed; the robot is placed at the last crossed checkpoint and the timer continues. Venue: Back Field. Teacher: Mr. Shubham Asthana. Disqualification: non-compliant robot or touching the robot after the start signal without judges' approval."
     },
     {
-      "name": "Robo War (Balloon Bust)",
+      "name": "Robo War Balloon Bust",
       "category": "technova",
-      "keywords": [
-        "robo war",
-        "balloon bust",
-        "robot war"
-      ],
-      "description": "Robotics Arena; 20 November 2026. Team size: maximum 2 members. Maximum size/weight: 30 × 30 × 30 cm and 5 kg including batteries. Control: remote or Bluetooth; maximum 12 V. Wedges, scoops or hoists are permitted subject to safety inspection. Destructive/offensive weapons or systems designed to dismantle an opponent robot are prohibited. Venue: Turf Area, Cambridge Section. Teacher in charge: Ms. Swaranjali Rawat. Mandatory inspection applies. Sharp edges, projectiles, flames, hazardous substances and mechanisms likely to injure participants or spectators are prohibited."
+      "keywords": ["robo war", "balloon bust", "robot war", "robo war rules"],
+      "description": "Date: 20 November 2026. Controlled robot-versus-robot challenge. Team: maximum 2 members. Maximum dimensions: 30 x 30 x 30 cm. Maximum weight: 5 kg including batteries. Control: remote or Bluetooth. Maximum power: 12V. Wedges, scoops or hoists are permitted subject to safety inspection. Destructive or offensive weapons and systems designed to dismantle an opponent robot are prohibited. Mandatory pre-event safety inspection applies. Sharp edges, projectiles, flames, hazardous substances and mechanisms likely to injure participants or spectators are prohibited. Barriers, emergency shutdown and judge intervention will be briefed before the event. Venue: Turf Area, Cambridge Section. Teacher: Ms. Swaranjali Rawat."
     },
     {
-      "name": "Boat Race (Senior)",
+      "name": "Boat Race",
       "category": "technova",
-      "keywords": [
-        "boat race",
-        "model boat",
-        "senior boat"
-      ],
-      "description": "Senior only, Classes IX–XII; 20 November 2026. Teams of 2 design and operate a self-propelled model boat. Battery-operated electric motors. Maximum dimensions: length 30 cm, width 20 cm. Lightweight, waterproof and environmentally responsible materials are encouraged. Boats undergo stability and electrical safety inspection. Venue: Swimming Pool, CMS Aliganj-I. Teacher in charge: Mr. Shobhit Kanchan. Race distance, heats, lane allocation and winner-selection method will be announced at the event briefing. Do not enter the water or retrieve a boat without authorisation."
+      "keywords": ["boat race", "model boat", "senior boat", "boat rules", "boat dimensions"],
+      "description": "Senior Section only, Classes IX-XII. Date: 20 November 2026. Teams of 2 design and operate a self-propelled model boat demonstrating stability, propulsion and safe water operation. Battery electric motors. Maximum length: 30 cm. Maximum width: 20 cm. Lightweight, waterproof and environmentally responsible materials are encouraged. Boats undergo stability and electrical safety inspection. Venue: Swimming Pool, CMS Aliganj-I. Teacher: Mr. Shobhit Kanchan. Bring the completed boat and permitted onboard power source for inspection. No exposed or unsafe electrical connections. Follow marshal instructions for placing, operating and retrieving boats. Do not enter the water or retrieve a boat without authorisation. Race distance, heats, lane allocation and winner selection will be announced at the briefing."
     },
     {
       "name": "AI Model Development Challenge",
       "category": "technova",
-      "keywords": [
-        "ai model development",
-        "model development",
-        "image classifier",
-        "sound classifier",
-        "gesture classifier",
-        "ai model"
-      ],
-      "description": "AI & Computing Arena; 1 hour. Teams of 2 train a simple image, sound or gesture classifier with a beginner-friendly tool, then test it on unseen examples. Focus: data labelling, training, testing and model limitations. The brochure's AI & Computing Arena heading says Senior Section, Classes IX–XI; its detailed challenge table lists Classes IX–XII. Confirm eligibility with the organising team because the brochure gives both wordings. Host computers and pre-installed software are provided wherever applicable. Teacher/venue details: AI Lab; individual start time to be announced."
+      "keywords": ["ai model development", "model development", "image classifier", "sound classifier", "gesture classifier"],
+      "description": "AI & Computing Arena. Team: 2 participants. Duration: 1 hour. Participants train a simple image, sound or gesture classifier using a beginner-friendly tool and test it on unseen examples. Focus areas: data labelling, training, testing and model limitations. The arena heading identifies Senior Section, Classes IX-XI, while the detailed table lists Classes IX-XII. Confirm eligibility with organisers. The brochure does not specify this challenge in the final event schedule, so its date and slot are unconfirmed."
     },
     {
       "name": "Computer Vision Challenge",
       "category": "technova",
-      "keywords": [
-        "computer vision",
-        "cv challenge",
-        "image processing",
-        "object detection",
-        "traffic sign"
-      ],
-      "description": "AI & Computing Arena; 1 hour. Teams of 2 use a prepared image set and starter code (OpenCV or a pre-trained model) to detect, count or classify objects such as shapes, colours or traffic signs. Focus: image pre-processing, detection, accuracy and limitations such as lighting and blur. The arena heading says Senior Section, Classes IX–XI; detailed challenge table lists Classes IX–XII. Confirm eligibility with organisers. Venue: AI Lab. Teacher in charge: To be announced."
+      "keywords": ["computer vision", "cv challenge", "image processing", "object detection", "traffic sign"],
+      "description": "Date: 20 November 2026. AI & Computing Arena. Team: 2 participants. Duration: 1 hour. Use a prepared image set and starter code, such as OpenCV or a pre-trained model, to detect, count or classify shapes, colours or traffic signs. Focus areas: image preprocessing, detection, accuracy and limitations caused by lighting or blur. Eligibility discrepancy: arena heading says Classes IX-XI, detailed table says Classes IX-XII. Confirm with organisers. Venue: AI Lab. Teacher: To be announced."
     },
     {
       "name": "NLP Challenge",
       "category": "technova",
-      "keywords": [
-        "nlp",
-        "natural language processing",
-        "nlp challenge",
-        "text classification",
-        "sentiment analysis"
-      ],
-      "description": "AI & Computing Arena; 1 hour. Teams of 2 work with prepared short texts, clean and tokenise them, then build a sentiment or topic classifier in Python. Focus: text pre-processing, features, evaluation and bias in language data. The arena heading says Senior Section, Classes IX–XI; detailed challenge table lists Classes IX–XII. Confirm eligibility with organisers. Venue: AI Lab. Teacher in charge: To be announced."
+      "keywords": ["nlp", "natural language processing", "nlp challenge", "text classification", "sentiment analysis"],
+      "description": "Date: 20 November 2026. AI & Computing Arena. Team: 2 participants. Duration: 1 hour. Participants work with prepared short texts, clean and tokenise them, and build a sentiment or topic classifier in Python. Focus areas: text preprocessing, features, evaluation and bias in language data. Eligibility discrepancy: arena heading says Classes IX-XI, detailed table says Classes IX-XII. Confirm with organisers. Venue: AI Lab. Teacher: To be announced."
     },
     {
       "name": "Game Development",
       "category": "technova",
-      "keywords": [
-        "game development",
-        "computer game",
-        "game challenge"
-      ],
-      "description": "AI & Computing Arena; 1 hour. Teams of 2 design and build a simple playable computer game on the approved platform. Judged on game logic, functionality, creativity and ability to explain the code. Detailed challenge table lists Classes IX–XII; the arena heading says Senior Section, Classes IX–XI, so confirm eligibility with organisers. Venue: AI Lab. Teacher in charge: Mr. Shubham Asthana."
+      "keywords": ["game development", "computer game", "game challenge", "game rules"],
+      "description": "Date: 20 November 2026. AI & Computing Arena. Team: 2 participants. Duration: 1 hour. Design and build a simple playable computer game on the approved platform. Judging considers logic, functionality, creativity and ability to explain the code. Eligibility discrepancy: arena heading says Classes IX-XI, detailed table says Classes IX-XII. Confirm with organisers. Venue: AI Lab. Teacher: Mr. Shubham Asthana."
     },
     {
-      "name": "AI & Robotics Quiz Challenge",
+      "name": "AI and Robotics Quiz Challenge",
       "category": "technova",
-      "keywords": [
-        "ai robotics quiz",
-        "robotics quiz",
-        "quiz challenge",
-        "quiz"
-      ],
-      "description": "Scheduled for 19 November 2026; 1 hour. Rounds cover robotics fundamentals, AI concepts, sensors, programming logic, applications and responsible use of AI. Round structure and scoring are explained before the quiz. Detailed challenge table lists Classes IX–XII; the arena heading says Senior Section, Classes IX–XI, so confirm eligibility with organisers. Venue: Computer / AI Lab. Teacher in charge: Ms. Manju Rawat. Reporting at 8:00 AM; slot to be announced."
+      "keywords": ["ai robotics quiz", "robotics quiz", "quiz challenge", "quiz"],
+      "description": "Date: 19 November 2026. Duration: 1 hour. Rounds cover robotics fundamentals, AI concepts, sensors, programming logic, applications and responsible AI. Round structure and scoring will be explained before the quiz. The detailed table lists Classes IX-XII, while the arena heading says Classes IX-XI. Confirm eligibility with organisers. Venue: Computer / AI Lab. Teacher: Ms. Manju Rawat. Reporting time: 8:00 AM; slot to be announced. Team size is not specified in the brochure."
     },
     {
       "name": "Mini Python Chatbot",
       "category": "technova",
-      "keywords": [
-        "mini python chatbot",
-        "python chatbot",
-        "chatbot challenge",
-        "school helpdesk chatbot",
-        "library chatbot"
-      ],
-      "description": "AI & Computing Arena; 1 hour. Teams of 2 build a rule-based school-helpdesk or library chatbot using strings, dictionaries, conditional statements and functions. Detailed challenge table lists Classes IX–XII; the arena heading says Senior Section, Classes IX–XI, so confirm eligibility with organisers."
+      "keywords": ["mini python chatbot", "python chatbot", "chatbot challenge", "school helpdesk chatbot", "library chatbot"],
+      "description": "AI & Computing Arena. Team: 2 participants. Duration: 1 hour. Build a rule-based school helpdesk or library chatbot using strings, dictionaries, conditional statements and functions. The detailed table lists Classes IX-XII, while the arena heading says Classes IX-XI. Confirm eligibility with organisers. This challenge is not included in the final schedule on page 8; its date, venue and slot are unconfirmed."
     },
     {
       "name": "AI Innovation Showdown",
       "category": "technova",
-      "keywords": [
-        "ai innovation showdown",
-        "innovation showdown",
-        "sdg",
-        "ai project presentation"
-      ],
-      "description": "Senior Section, Classes IX–XI; 20 November 2026; AI Lab. Propose or demonstrate an AI-enabled solution to a meaningful real-world problem, preferably aligned with a UN Sustainable Development Goal. Entry may be a prototype, simulation or evidence-supported concept; a working demonstration is encouraged. Presentation: 8 minutes total, maximum 5 minutes presenting and 3 minutes Q&A. Components: problem statement; solution overview; AI and technical approach; impact and evidence; limitations and responsibility; future scope. Judging: problem relevance 10, technical understanding/use of AI 15, prototype/demonstration/feasibility 15, data/evidence/testing 10, originality/potential impact 5, communication/Q&A 5; total 60. Teacher in charge: Mr. Abhishek Sharma."
-    },
-    {
-      "name": "Student AI Challenge Guide – Six Project Ideas",
-      "category": "technova",
-      "keywords": [
-        "student ai challenge guide",
-        "six ai projects",
-        "project ideas",
-        "ai project ideas",
-        "npl projects",
-        "cv projects"
-      ],
-      "description": "The Student AI Challenge Guide introduces six short project ideas for Classes IX and XI, with suggested working time 45–60 minutes. NLP: (1) Smart Complaint Classifier—sort complaints into Transport, Library, Infrastructure, Maintenance or Canteen; (2) Suspicious Message Detector—classify sample messages as Normal, Promotional or Suspicious/Potential phishing; (3) Smart School Query Assistant—identify question intent and return approved answers. Computer Vision: (4) AI Waste Segregation Assistant—classify Plastic, Paper, Metal, Organic or Glass; (5) AI Hand Gesture Controller—recognise gestures for on-screen actions; (6) Smart Traffic Sign Recognition—classify signs such as Stop, No Entry, Speed Limit, Pedestrian Crossing or School Ahead. The organising team confirms final project option, dataset, software and permitted resources."
+      "keywords": ["ai innovation showdown", "innovation showdown", "sdg", "ai project presentation", "innovation rules"],
+      "description": "Senior Section, Classes IX-XI. Date: 20 November 2026. Venue: AI Lab. Propose or demonstrate an AI-enabled solution to a meaningful real-world problem, preferably aligned with a Sustainable Development Goal. Entries may be prototypes, simulations or evidence-supported concepts. A working demonstration is encouraged. Presentation: 8 minutes total, maximum 5 minutes presentation and 3 minutes Q&A. Include problem statement, solution overview, AI and technical approach, impact and evidence, limitations and responsibility (bias, privacy, reliability and accessibility), and future scope. Judging out of 60 marks: problem relevance and clarity 10; technical understanding and use of AI 15; prototype/demo/feasibility 15; data/evidence/testing 10; originality/potential impact 5; communication/Q&A 5. Teacher: Mr. Abhishek Sharma."
     },
     {
       "name": "TECHNOVA Event Schedule",
       "category": "technova",
-      "keywords": [
-        "schedule",
-        "timetable",
-        "when is technova",
-        "event dates",
-        "what happens on 19 november",
-        "what happens on 20 november"
-      ],
-      "description": "19 November 2026: AI & Robotics Quiz Challenge, Computer / AI Lab; reporting 8:00 AM; slot to be announced. 20 November 2026: Robo Soccer, Line Follower, Obstacle Race, Robo War (Balloon Bust), Senior Boat Race, AI Innovation Showdown, Computer Vision Challenge, NLP Challenge and Game Development. Reporting 8:00 AM; event-wise venues are listed in the brochure and individual start times/heat sequences will be announced by the organising committee."
+      "keywords": ["schedule", "timetable", "when is technova", "event dates", "19 november", "20 november"],
+      "description": "19 November 2026: AI & Robotics Quiz Challenge at Computer / AI Lab. Reporting: 8:00 AM; slot to be announced. 20 November 2026: Robo Soccer, Line Follower, Obstacle Race, Robo War (Balloon Bust), Senior Boat Race, AI Innovation Showdown, Computer Vision Challenge, NLP Challenge and Game Development. Reporting: 8:00 AM. Event-specific venues are listed in the brochure. Individual start times, heat sequences and venue instructions will be announced by the organising committee. AI Model Development and Mini Python Chatbot are not listed in this final schedule."
     },
     {
       "name": "TECHNOVA Rules and General Arrangements",
       "category": "technova",
-      "keywords": [
-        "rules",
-        "general rules",
-        "regulations",
-        "equipment",
-        "internet",
-        "computers",
-        "judging",
-        "conduct",
-        "safety",
-        "permitted resources"
-      ],
-      "description": "Teams must register under the correct class group and category before the deadline. Participants should reach the designated venue at the communicated reporting time. Bring only equipment permitted under category rules; robots and boats are subject to technical inspection. Host provides computers and pre-installed software wherever applicable. Internet, generative AI assistants, external storage and pre-written code follow category-specific instructions. Students must explain their own code, calculations, data and design decisions. Judges' decisions on scoring, safety and rule interpretation are final, subject to the announced procedure. Show respect and take care of the arena, equipment and other teams' property."
+      "keywords": ["rules", "general rules", "regulations", "equipment", "internet", "computers", "judging", "conduct", "safety", "permitted resources"],
+      "description": "Every team must register under the correct class group and category before the deadline. Participants must reach the designated venue at the communicated reporting time. Bring only equipment permitted by category rules; robots and boats are subject to technical inspection. For AI challenges, the host provides computers and pre-installed software wherever applicable. Internet, generative AI assistants, external storage devices and pre-written code are governed by category-specific instructions. Students must explain their own code, calculations, data and design decisions. Judges' decisions on scoring, safety and rule interpretation are final, subject to the announced procedure. Respect others and take care of the arena, equipment and other teams' property."
+    },
+    {
+      "name": "TECHNOVA Event Teachers and Venues",
+      "category": "technova",
+      "keywords": ["teacher", "teachers", "in charge", "venue", "location", "where is", "who is responsible"],
+      "description": "Robo Soccer: Mr. Shantanu Kumar, Turf Area, Cambridge Section. Line Follower: Ms. Noopur Goel, Robotics Lab. Obstacle Race: Mr. Shubham Asthana, Back Field. Robo War: Ms. Swaranjali Rawat, Turf Area, Cambridge Section. Boat Race: Mr. Shobhit Kanchan, Swimming Pool, CMS Aliganj-I. AI Innovation Showdown: Mr. Abhishek Sharma, AI Lab. Computer Vision: teacher to be announced, AI Lab. NLP: teacher to be announced, AI Lab. Game Development: Mr. Shubham Asthana, AI Lab. AI & Robotics Quiz: Ms. Manju Rawat, Computer / AI Lab."
     },
     {
       "name": "TECHNOVA Contacts",
       "category": "technova",
-      "keywords": [
-        "contact",
-        "phone",
-        "coordinator",
-        "help desk",
-        "organiser",
-        "teacher in charge",
-        "who to contact"
-      ],
-      "description": "Help desk: Mr. Shubham Asthana. Technical coordinators: Ms. Swaranjali Rawat (8090365217) and Mr. Abhishek Sharma (9670050600). Event-specific teachers in charge are listed in the event details. Computer Vision Challenge and NLP Challenge teacher in charge: To be announced."
-    },
-    {
-      "name": "Student AI Challenge – Suggested 60-minute Plan",
-      "category": "technova",
-      "keywords": [
-        "60 minute plan",
-        "one hour plan",
-        "challenge plan",
-        "time plan",
-        "project timeline"
-      ],
-      "description": "Suggested plan: 0–5 minutes briefing; 5–15 minutes dataset exploration; 15–35 minutes model development; 35–45 minutes testing; 45–55 minutes demonstration; 55–60 minutes explanation."
-    },
-    {
-      "name": "Student AI Challenge – Judging Criteria",
-      "category": "technova",
-      "keywords": [
-        "judging criteria",
-        "marks",
-        "rubric",
-        "how judged",
-        "50 marks"
-      ],
-      "description": "The Student AI Challenge Guide suggests 50 marks: Problem understanding 5; Dataset preparation 10; Model development and implementation 15; Testing and prediction quality 10; Innovation and presentation 5; Explanation and understanding 5."
+      "keywords": ["contact", "phone", "coordinator", "help desk", "organiser", "organizer", "who to contact", "abhishek sharma", "shubham asthana", "sw aranjali"],
+      "description": "Event help desk: Mr. Shubham Asthana. Technical coordinators: Ms. Swaranjali Rawat, phone 8090365217; Mr. Abhishek Sharma, phone 9670050600. Event Manager: Mr. Abhishek Sharma. Computer Vision and NLP teacher details are to be announced."
     }
   ],
   "faqs": [
     {
-      "keywords": [
-        "hello",
-        "hi",
-        "hey"
-      ],
-      "answer": "Hello! Welcome to the CMS Events Assistant. Ask about TECHNOVA 2026 or choose one of the CMS event categories."
+      "keywords": ["hello", "hi", "hey"],
+      "answer": "Hello! Welcome to the CMS Events Assistant. Ask me anything about TECHNOVA 2026, its events, rules, registration, schedule or venues."
     },
     {
-      "keywords": [
-        "all events",
-        "all cms events",
-        "event categories",
-        "what events"
-      ],
-      "answer": "I cover TECHNOVA 2026 with brochure-based details, plus Cultural Events, Sports Events, Science & Exhibitions, Academic Events and Other CMS Events. The non-TECHNOVA categories are visible but marked Coming Soon until verified CMS information is added."
+      "keywords": ["all events", "all cms events", "event categories", "what events"],
+      "answer": "I currently have verified brochure-based information about TECHNOVA 2026. Cultural Events, Sports Events, Science & Exhibitions, Academic Events and Other CMS Events are marked Coming Soon."
     },
     {
-      "keywords": [
-        "cultural events",
-        "sports events",
-        "science events",
-        "academic events",
-        "other cms events"
-      ],
-      "answer": "That CMS event category is available, but no verified event list or calendar has been provided yet. Please check official CMS notices. I won't invent events or dates."
+      "keywords": ["registration deadline", "can i still register", "late registration"],
+      "answer": "The TECHNOVA brochure lists 16 November 2026 as the registration deadline. That date has passed. The brochure does not confirm late registration. Contact the event help desk to ask whether an exception is possible."
     },
     {
-      "keywords": [
-        "registration deadline",
-        "can i still register",
-        "late registration"
-      ],
-      "answer": "The TECHNOVA brochure lists 16 November 2026 as the registration deadline. Today is 17 November 2026, so the published deadline has passed. The brochure does not say whether late registration is allowed; contact the help desk."
+      "keywords": ["who is the principal", "principal name"],
+      "answer": "The Principal of the host branch, CMS Aliganj-I, is Ms. Shivani Singh."
+    },
+    {
+      "keywords": ["what time should i report", "reporting time", "reporting"],
+      "answer": "The brochure specifies reporting at 8:00 AM on the respective event day. Individual event start times and slots will be announced by the organising committee."
     }
   ]
 }
