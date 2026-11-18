@@ -1,180 +1,117 @@
 
-const form = document.getElementById("chat-form");
-const input = document.getElementById("message-input");
-const messages = document.getElementById("messages");
-const sendButton = document.getElementById("send-button");
+const chatMessages = document.getElementById("chatMessages");
+const chatForm = document.getElementById("chatForm");
+const userInput = document.getElementById("userInput");
+const sendButton = document.getElementById("sendButton");
 
-// Safely format chatbot responses
-function formatMessage(text) {
-  const lines = String(text).split("\n");
-  const container = document.createElement("div");
-
-  let table = null;
-  let tbody = null;
-  let list = null;
-
-  function flushList() {
-    if (list) {
-      container.appendChild(list);
-      list = null;
-    }
-  }
-
-  function flushTable() {
-    if (table) {
-      container.appendChild(table);
-      table = null;
-      tbody = null;
-    }
-  }
-
-  function addInlineText(parent, value) {
-    // Escape HTML by using text nodes, then format **bold**
-    const parts = value.split(/(\*\*.*?\*\*)/g);
-
-    parts.forEach(part => {
-      if (part.startsWith("**") && part.endsWith("**")) {
-        const strong = document.createElement("strong");
-        strong.textContent = part.slice(2, -2);
-        parent.appendChild(strong);
-      } else {
-        parent.appendChild(document.createTextNode(part));
-      }
+function getTime() {
+    return new Date().toLocaleTimeString([], {
+        hour: "2-digit",
+        minute: "2-digit"
     });
-  }
+}
 
-  lines.forEach(line => {
-    const trimmed = line.trim();
+function addMessage(message, sender, isHTML = false) {
+    const wrapper = document.createElement("div");
+    wrapper.className = `message ${sender}-message`;
 
-    // Markdown table rows
-    if (trimmed.startsWith("|") && trimmed.endsWith("|")) {
-      flushList();
+    const avatar = document.createElement("div");
+    avatar.className = "message-avatar";
+    avatar.textContent = sender === "bot" ? "✦" : "👤";
 
-      const cells = trimmed
-        .slice(1, -1)
-        .split("|")
-        .map(cell => cell.trim());
+    const content = document.createElement("div");
+    content.className = "message-content";
 
-      // Skip Markdown separator rows
-      if (cells.every(cell => /^:?-{3,}:?$/.test(cell))) {
-        return;
-      }
-
-      if (!table) {
-        table = document.createElement("table");
-        table.className = "chat-table";
-
-        const thead = document.createElement("thead");
-        const row = document.createElement("tr");
-
-        cells.forEach(cell => {
-          const th = document.createElement("th");
-          addInlineText(th, cell);
-          row.appendChild(th);
-        });
-
-        thead.appendChild(row);
-        table.appendChild(thead);
-
-        tbody = document.createElement("tbody");
-        table.appendChild(tbody);
-      } else {
-        const row = document.createElement("tr");
-
-        cells.forEach(cell => {
-          const td = document.createElement("td");
-          addInlineText(td, cell);
-          row.appendChild(td);
-        });
-
-        tbody.appendChild(row);
-      }
-
-      return;
-    }
-
-    flushTable();
-
-    if (!trimmed) {
-      flushList();
-      return;
-    }
-
-    // Bullet lists
-    if (/^[-*]\s+/.test(trimmed)) {
-      if (!list) list = document.createElement("ul");
-
-      const li = document.createElement("li");
-      addInlineText(li, trimmed.replace(/^[-*]\s+/, ""));
-      list.appendChild(li);
-      return;
-    }
-
-    flushList();
+    const heading = document.createElement("strong");
+    heading.textContent = sender === "bot"
+        ? "CMS Events Assistant"
+        : "You";
 
     const paragraph = document.createElement("p");
-    addInlineText(paragraph, trimmed);
-    container.appendChild(paragraph);
-  });
 
-  flushList();
-  flushTable();
-
-  return container;
-}
-
-function addMessage(text, kind) {
-  const bubble = document.createElement("div");
-  bubble.className = `bubble ${kind}`;
-  bubble.appendChild(formatMessage(text));
-
-  messages.appendChild(bubble);
-  messages.scrollTop = messages.scrollHeight;
-}
-
-async function ask(question) {
-  const clean = question.trim();
-  if (!clean) return;
-
-  addMessage(clean, "user");
-  input.value = "";
-  sendButton.disabled = true;
-
-  try {
-    const response = await fetch("/api/chat", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ message: clean })
-    });
-
-    if (!response.ok) {
-      throw new Error("Server response was not successful.");
+    if (isHTML) {
+        paragraph.innerHTML = message;
+    } else {
+        paragraph.textContent = message;
     }
 
-    const data = await response.json();
+    const time = document.createElement("span");
+    time.className = "message-time";
+    time.textContent = getTime();
 
-    addMessage(
-      data.reply || "I don't have an answer for that yet.",
-      "bot"
-    );
-  } catch (error) {
-    addMessage(
-      "I couldn't connect to the chatbot. Check that the Flask server is running and try again.",
-      "bot"
-    );
-  } finally {
-    sendButton.disabled = false;
-    input.focus();
-  }
+    content.appendChild(heading);
+    content.appendChild(paragraph);
+    content.appendChild(time);
+
+    if (sender === "bot") {
+        wrapper.appendChild(avatar);
+        wrapper.appendChild(content);
+    } else {
+        wrapper.appendChild(content);
+        wrapper.appendChild(avatar);
+    }
+
+    chatMessages.appendChild(wrapper);
+
+    chatMessages.scrollTop = chatMessages.scrollHeight;
 }
 
-form.addEventListener("submit", (event) => {
-  event.preventDefault();
-  ask(input.value);
+async function sendMessage(message) {
+    message = message.trim();
+
+    if (!message) return;
+
+    addMessage(message, "user");
+
+    userInput.value = "";
+    sendButton.disabled = true;
+    sendButton.textContent = "...";
+
+    try {
+        const response = await fetch("/chat", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                message: message
+            })
+        });
+
+        const data = await response.json();
+
+        if (!response.ok) {
+            throw new Error("Server error");
+        }
+
+        addMessage(data.reply, "bot", true);
+
+    } catch (error) {
+        addMessage(
+            "Unable to connect to the chatbot. Please check that the Flask server is running.",
+            "bot"
+        );
+    }
+
+    sendButton.disabled = false;
+    sendButton.textContent = "SEND ➤";
+    userInput.focus();
+}
+
+chatForm.addEventListener("submit", function(event) {
+    event.preventDefault();
+    sendMessage(userInput.value);
 });
 
-document.querySelectorAll("[data-question]").forEach((button) => {
-  button.addEventListener("click", () => {
-    ask(button.dataset.question);
-  });
-});
+function sendSuggestion(message) {
+    sendMessage(message);
+}
+
+function clearChat() {
+    chatMessages.innerHTML = "";
+
+    addMessage(
+        "Hello! I am the CMS Event Manager Chatbot. How can I help you today?",
+        "bot"
+    );
+}
