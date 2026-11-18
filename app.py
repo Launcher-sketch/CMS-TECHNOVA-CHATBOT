@@ -2,10 +2,11 @@
 from flask import Flask, render_template, request, jsonify
 from pathlib import Path
 import json
-import os
 import re
+import html
 
 app = Flask(__name__)
+
 DATA_FILE = Path(__file__).parent / "data" / "technova.json"
 
 
@@ -14,185 +15,178 @@ def load_data():
         return json.load(file)
 
 
-def contains_any(message, words):
-    return any(
-        str(word).lower() in message
-        for word in words if word
-    )
+def clean_text(text):
+    return re.sub(r"\s+", " ", str(text).lower()).strip()
 
 
-def get_teacher(event):
-    description = event.get("description", "")
-    match = re.search(
-        r"Teacher:\s*([^.\n]+)",
-        description,
-        re.IGNORECASE
-    )
-    return match.group(1).strip() if match else "Not specified"
-
-
-def teacher_table(events):
-    rows = [
-        "| TECHNOVA Event | Teacher In-charge |",
-        "|---|---|"
+def get_teacher_data(data):
+    teachers = [
+        {
+            "name": "Mr. Abhishek Sharma",
+            "event": "AI Innovation Showdown",
+            "venue": "AI Lab"
+        },
+        {
+            "name": "Mr. Shantanu Kumar",
+            "event": "Robo Soccer",
+            "venue": "Turf Area, Cambridge Section"
+        },
+        {
+            "name": "Ms. Noopur Goel",
+            "event": "Line Follower",
+            "venue": "Robotics Lab"
+        },
+        {
+            "name": "Mr. Shubham Asthana",
+            "event": "Obstacle Race / Game Development",
+            "venue": "Back Field / AI Lab"
+        },
+        {
+            "name": "Ms. Swaranjali Rawat",
+            "event": "Robo War",
+            "venue": "Turf Area, Cambridge Section"
+        },
+        {
+            "name": "Mr. Shobhit Kanchan",
+            "event": "Boat Race",
+            "venue": "Swimming Pool, CMS Aliganj-I"
+        },
+        {
+            "name": "Ms. Manju Rawat",
+            "event": "AI and Robotics Quiz",
+            "venue": "Computer / AI Lab"
+        }
     ]
 
-    for event in events:
-        rows.append(
-            f"| {event.get('name', 'Unnamed Event')} | "
-            f"{get_teacher(event)} |"
+    return teachers
+
+
+def make_teacher_table(teachers):
+    rows = ""
+
+    for teacher in teachers:
+        rows += f"""
+        <tr>
+            <td>{html.escape(teacher['name'])}</td>
+            <td>{html.escape(teacher['event'])}</td>
+            <td>{html.escape(teacher['venue'])}</td>
+        </tr>
+        """
+
+    return f"""
+    <div class="table-wrapper">
+        <table class="chat-table">
+            <thead>
+                <tr>
+                    <th>Teacher In-Charge</th>
+                    <th>Event</th>
+                    <th>Venue</th>
+                </tr>
+            </thead>
+            <tbody>
+                {rows}
+            </tbody>
+        </table>
+    </div>
+    """
+
+
+def find_answer(message, data):
+    message = clean_text(message)
+
+    # Greeting
+    greetings = ["hi", "hello", "hey", "good morning",
+                 "good afternoon", "good evening"]
+
+    if message in greetings:
+        return (
+            "Hello! I am the CMS Event Manager Chatbot. "
+            "How can I help you today? You can ask me about "
+            "TECHNOVA 2026, events, teachers, rules and venues."
         )
 
-    return "\n".join(rows)
+    # All teachers
+    teacher_words = ["teacher", "teachers", "in charge",
+                     "faculty", "coordinator"]
 
+    if (
+        any(word in message for word in teacher_words)
+        and any(word in message for word in
+                ["all", "list", "names", "every", "show"])
+    ):
+        return make_teacher_table(get_teacher_data(data))
 
-def find_matching_event(message, events):
-    matches = []
+    # Individual teacher
+    teachers = get_teacher_data(data)
 
-    for event in events:
-        terms = [event.get("name", "")] + event.get("keywords", [])
-
-        for term in terms:
-            term = str(term).lower().strip()
-
-            if len(term) >= 4 and term in message:
-                matches.append((len(term), event))
-                break
-
-    if not matches:
-        return None
-
-    matches.sort(key=lambda item: item[0], reverse=True)
-    return matches[0][1]
-
-
-@app.get("/")
-def home():
-    data = load_data()
-
-    return render_template(
-        "index.html",
-        title=data.get("site_title", "CMS Events Assistant"),
-        categories=data.get("categories", [])
-    )
-
-
-@app.post("/api/chat")
-def chat():
-    payload = request.get_json(silent=True) or {}
-    message = str(payload.get("message", "")).strip().lower()
-
-    if not message:
-        return jsonify(reply="Please type a question.")
-
-    data = load_data()
-    events = data.get("events", [])
-
-    # 1. Teacher-related questions get priority.
-    teacher_words = [
-        "teacher", "teachers", "incharge",
-        "in-charge", "in charge", "faculty",
-        "who handles", "who is handling",
-        "responsible teacher"
-    ]
-
-    is_teacher_question = contains_any(message, teacher_words)
-
-    if is_teacher_question:
-        # Questions asking for the complete teacher list.
-        all_teacher_words = [
-            "all", "every", "list", "names",
-            "category", "categories", "everyone",
-            "all events", "all teachers"
-        ]
-
-        if contains_any(message, all_teacher_words):
-            return jsonify(
-                reply=(
-                    "Here is the complete TECHNOVA 2026 "
-                    "event-wise teacher list:\n\n"
-                    + teacher_table(events)
-                )
-            )
-
-        # Try to identify one particular event.
-        matched_event = find_matching_event(message, events)
-
-        if matched_event:
-            return jsonify(
-                reply=(
-                    f"**{matched_event.get('name')}**\n\n"
-                    f"Teacher In-charge: **{get_teacher(matched_event)}**"
-                )
-            )
-
-        # General teacher question: show the complete list.
-        return jsonify(
-            reply=(
-                "Here are the confirmed TECHNOVA 2026 "
-                "event-wise teacher assignments:\n\n"
-                + teacher_table(events)
-            )
+    for teacher in teachers:
+        name_parts = clean_text(teacher["name"]).replace("mr. ", "").replace(
+            "ms. ", ""
         )
 
-    # 2. Match a named event.
-    matched_event = find_matching_event(message, events)
-
-    if matched_event:
-        return jsonify(
-            reply=matched_event.get("description")
-            or "No confirmed details have been added for this event yet."
-        )
-
-    # 3. Match a category.
-    for category in data.get("categories", []):
-        if contains_any(
-            message,
-            [category.get("name", "")] + category.get("keywords", [])
+        if name_parts in message or (
+            "abhishek" in message and "abhishek" in name_parts
         ):
-            matching = [
-                event for event in events
-                if event.get("category") == category.get("id")
-            ]
-
-            if matching:
-                names = "\n".join(
-                    "• " + event.get("name", "Unnamed event")
-                    for event in matching
-                )
-
-                return jsonify(
-                    reply=(
-                        f"{category.get('name')}:\n"
-                        f"{names}\n"
-                        "Ask me about any listed event."
-                    )
-                )
-
-            return jsonify(
-                reply=(
-                    f"{category.get('name')} is available as a category, "
-                    "but confirmed event details have not been added yet. "
-                    "Please check the latest CMS notice or ask your school coordinator."
-                )
+            return (
+                f"<strong>{html.escape(teacher['name'])}</strong><br>"
+                f"Event: {html.escape(teacher['event'])}<br>"
+                f"Venue: {html.escape(teacher['venue'])}"
             )
 
-    # 4. General FAQ matching.
-    for item in data.get("faqs", []):
-        if contains_any(message, item.get("keywords", [])):
-            return jsonify(
-                reply=item.get("answer", "I don't have an answer for that yet.")
+    # FAQs
+    for faq in data.get("faqs", []):
+        for keyword in faq.get("keywords", []):
+            if clean_text(keyword) in message:
+                return faq.get("answer", "")
+
+    # Search events
+    for event in data.get("events", []):
+        keywords = event.get("keywords", [])
+
+        if any(clean_text(keyword) in message for keyword in keywords):
+            return (
+                f"<strong>{html.escape(event['name'])}</strong><br>"
+                f"{html.escape(event.get('description', ''))}"
             )
 
-    # 5. Fallback.
-    return jsonify(
-        reply=data.get(
-            "fallback",
-            "I couldn't find confirmed information about that."
-        )
+    # Search event names
+    for event in data.get("events", []):
+        if clean_text(event["name"]) in message:
+            return (
+                f"<strong>{html.escape(event['name'])}</strong><br>"
+                f"{html.escape(event.get('description', ''))}"
+            )
+
+    return data.get(
+        "fallback",
+        "I couldn't find confirmed information. Please contact the event organisers."
     )
+
+
+@app.route("/")
+def home():
+    return render_template("index.html")
+
+
+@app.route("/chat", methods=["POST"])
+def chat():
+    try:
+        user_message = request.json.get("message", "").strip()
+
+        if not user_message:
+            return jsonify({"reply": "Please enter a question."})
+
+        data = load_data()
+        answer = find_answer(user_message, data)
+
+        return jsonify({"reply": answer})
+
+    except Exception as error:
+        app.logger.exception("Chat error")
+        return jsonify({
+            "reply": "Something went wrong. Please try again."
+        }), 500
 
 
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 5000))
-    app.run(host="0.0.0.0", port=port, debug=False)
+    app.run(debug=True, host="127.0.0.1", port=5000)
